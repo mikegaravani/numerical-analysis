@@ -93,12 +93,10 @@ def newton(f, df, tolf, tolx, maxit, xTrue, x0=0):
 df = lambda x: np.exp(x)-2*x # Derivative of f
 g1 = lambda x: x-f(x)*np.exp(x/2) # Fixed-point iteration function g1
 g2 = lambda x: x-f(x)*np.exp(-x/2) # Fixed-point iteration function g2
-
 tolx= 10**(-10)
 tolf = 10**(-6)
 maxit=100
 x0= 0
-
 [sol_bisection, iter_bisection, err_bisection, vecErrore_bisection] = bisection(f, -1, 1, tolx, maxit, xTrue)
 print('Metodo Bisezione \n x =', sol_bisection, '\n iter_bisection =', iter_bisection)
 plt.plot(sol_bisection, f(sol_bisection), 'oc', label='Bisection', markersize=13) # Converges
@@ -114,11 +112,9 @@ plt.plot(sol_g2,f(sol_g2), 'og', label='g2') # Does not converge
 [sol_newton, iter_newton, err_newton, vecErrore_newton]=newton(f, df, tolf, tolx, maxit, xTrue, x0)
 print('Metodo Newton \n x =',sol_newton,'\n iter_new=', iter_newton)
 plt.plot(sol_newton,f(sol_newton), 'ob', label='Newton', markersize=9) # Converges
-
 plt.legend()
 plt.grid()
 plt.show()
-
 plt.plot(vecErrore_bisection[:20], '.-', color='cyan', label='Bisection')
 plt.plot(vecErrore_g1, '.-', color='blue')
 plt.plot(vecErrore_g2[:20], '.-', color='green')

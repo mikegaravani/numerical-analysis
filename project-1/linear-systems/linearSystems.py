@@ -67,6 +67,5 @@ plt.xlabel('Matrix Dimension n')
 plt.ylabel('Value')
 plt.title('Hilbert Matrix: Error and Condition Number')
 plt.legend()
-
 plt.tight_layout()
 plt.show()
